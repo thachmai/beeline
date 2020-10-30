@@ -13,3 +13,19 @@ Clojure
 
 ## Infrastructure considerations
 The transfer should be peer-to-peer to avoid storing much of anything on a server.
+
+Web RTC seems like an obvious choice here, unless another viable peer-to-peer tech is possible (IPFS?)
+
+We'll start with local connection, then adding trickle ICE and STUN server to improve discoverability/connectivity.
+
+Since TURN would add significant complexity and operation cost, it's lowest on the priority list.
+
+A good high-level overview: https://webrtcglossary.com/stun/
+
+# Priorities
+
+* WebRTC POC to transfer text data between local connections (in progress)
+* Send richer types of data: at least image/png and one more exotique type
+* ICE and STUN POC
+* Design web interface
+* Deployment automation, deploy a public instance

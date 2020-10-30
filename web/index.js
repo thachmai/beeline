@@ -1,5 +1,6 @@
 "use strict";
 const editor = document.querySelector("#editor");
+const output = document.querySelector("#script-output");
 let thach = null;
 editor.addEventListener("paste", (event) => {
     thach = event;
@@ -12,5 +13,9 @@ editor.addEventListener("paste", (event) => {
     for (const item of items) {
         console.log(item.type)
     }
-    console.log("as text", event.clipboardData.getData("text"))
+
+    const textValue = event.clipboardData.getData("text");
+    output.append(document.createTextNode(textValue));
+
+    event.preventDefault();
 });
